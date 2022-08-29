@@ -1,10 +1,10 @@
 import React from "react";
 
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
     return (
         <div>
             <h1>Titulo</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis architecto, magnam reprehenderit iste voluptate temporibus voluptatum nam! Magni error debitis itaque necessitatibus exercitationem, quibusdam rem nostrum soluta laudantium. Eligendi, repudiandae?</p>
+            <p>{props.greeting}</p>
         </div>
         
 
