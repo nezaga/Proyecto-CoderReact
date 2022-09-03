@@ -1,4 +1,5 @@
 import React from "react";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
 
@@ -37,6 +38,7 @@ const NavBar = () => {
                             </li>
                         </ul>
                     </div>
+                    <CartWidget/>
                 </div>
             </nav>
         </div>
