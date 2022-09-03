@@ -1,6 +1,10 @@
 import './estilos.css';
 import 'core-js/actual';
+<<<<<<< HEAD
 import { Component, useState } from 'react';
+=======
+import NavBar from './components/NavBar';
+>>>>>>> d1-menu
 
 function SuperForm (props) {
   console.log(props);
@@ -70,12 +74,19 @@ function ClickCounter () {
 
 function App() {
   return (
+<<<<<<< HEAD
       <SuperForm title='Hey!'>
         <SuperButton/>
         <SuperState/>
         <StateHook/>
         <ClickCounter/>
       </SuperForm>
+=======
+    <div>
+      <NavBar/>
+    </div>
+    
+>>>>>>> d1-menu
   );
 }
 
