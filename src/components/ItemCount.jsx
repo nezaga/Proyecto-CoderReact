@@ -32,7 +32,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                     <p className="text-center pt-3"><strong>Producto 1</strong></p>
                     <div className="input-group mb-3">
                         <button className="btn btn-outline-secondary" type="button" id="button-addon1" onClick={() => {substractQty(itemQty - 1)}}>-</button>
-                        <input type="text" className="form-control" value={itemQty}></input>
+                        <input type="text" className="form-control" value={itemQty} onChange={() =>{}}></input>
                         <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={() => {addQty(itemQty + 1)}}>+</button>
                     </div>
                     <div className="d-grid gap-2">
