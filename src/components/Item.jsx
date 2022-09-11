@@ -5,7 +5,7 @@ const Item = (item) => {
         <div className="col-md-4" style={{width: 18 +'rem'}}>
             <div className="card">
                 <a href="#" /*Este será el link al detalle del producto*/> 
-                    <img src={item.pictureURL} className="card-img-top" alt="..."/>
+                    <img src={item.pictureURL} className="card-img-top" alt={item.title}/>
                     <div className="card-body">
                         <h5 className="card-title">{item.title}</h5>
                     </div>
