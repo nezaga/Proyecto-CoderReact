@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import ItemCount from "./ItemCount"
 
 
 const ItemDetail = ({item}) => {
+    const [quantityToAdd, setquantityToAdd] = useState(1); //State donde se guarda lo que envía el ItemCount
+
+    const onAdd = (itemQty) => {
+        setquantityToAdd(itemQty);
+    } // Función onAdd se define en IteamDetail, pero se ejecuta en el ItemCount
 
     return (
         <div>
@@ -16,7 +21,7 @@ const ItemDetail = ({item}) => {
                 </ul>
                 <h3 className="text-center">US${item.price}</h3>
             </div>
-            <ItemCount stock={5} initial={1} onAdd={0}/>
+            <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>
         </div>
     )
 }

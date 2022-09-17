@@ -25,7 +25,6 @@ const ItemDetailContainer = () => {
             .catch((error) => {
                 console.log(error)
             })
-
     },[])
 
     return (

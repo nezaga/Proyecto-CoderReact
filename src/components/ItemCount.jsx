@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 const ItemCount = ({stock, initial, onAdd}) => {
     const [itemStock, setItemStock] = useState(stock);
     const [itemQty, setItemQty] = useState(initial);
-    const [itemAdd, setItemAdd] = useState(onAdd);
 
     const substractQty = (value) => {
         if (value > 0) {
@@ -20,10 +19,14 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     const addToCart = () => {
         if (itemQty <= itemStock) {
+        onAdd(itemQty) // Se ejecuta la función definida en ItemDetail, se le envía como parámetro el state itemQty, donde se guarda la información de cuántos items seleccionó el usuario del producto.
         setItemStock(itemStock - itemQty);
-        setItemAdd(itemAdd + itemQty);
         }
     }
+
+    useEffect(() => { 
+        setItemStock(stock);
+    }, [stock]);
 
     return (
         <div className="container py-3">
@@ -39,7 +42,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                         <button className="btn btn-outline-primary" type="button" onClick={() => {addToCart()}}>Agregar al carrito</button>
                     </div>
                     <hr/>
-                    <p className="text-center">Cantidad seleccionada: {itemAdd} </p>
+                    <p className="text-center">Stock Disponible: {itemStock} </p>
                 </div>
             </div>
         </div>
