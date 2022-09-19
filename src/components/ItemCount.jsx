@@ -32,7 +32,6 @@ const ItemCount = ({stock, initial, onAdd}) => {
         <div className="container py-3">
             <div className="row">
                 <div className="col-md-3 bg-light">
-                    <p className="text-center pt-3"><strong>Producto 1</strong></p>
                     <div className="input-group mb-3">
                         <button className="btn btn-outline-secondary" type="button" id="button-addon1" onClick={() => {substractQty(itemQty - 1)}}>-</button>
                         <input type="text" className="form-control" value={itemQty} onChange={() =>{}}></input>
