@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "./context/CartContext";
 import ItemCount from "./ItemCount"
 
 
 const ItemDetail = ({item}) => {
+    const { addToCart } = useContext(CartContext); // Traigo del CartContext específicamente la función addToCart desestructurado
     const [quantityToAdd, setquantityToAdd] = useState(0); //State donde se guarda lo que envía el ItemCount
 
     const onAdd = (itemQty) => {
         setquantityToAdd(itemQty);
+        addToCart(item, itemQty); // Se ejecuta la función para agregar al state cart del CartProvider el item y su cantidad
     } // Función onAdd se define en IteamDetail, pero se ejecuta en el ItemCount
 
     return (
