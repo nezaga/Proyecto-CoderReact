@@ -3,6 +3,14 @@ import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 
 const NavBar = (id) => {
+    
+    // Se define array de categorías. Al momento de querer modificar, quitar o agregar alguna se debe hacer desde acá.
+    const categoriesArray = [
+        {link: "/category/cocteleras", name: "Cocteleras" },
+        {link: "/category/coladores%20y%20cucharillas", name: "Coladores y Cucharillas" },
+        {link: "/category/vasos%20mezcladores", name: "Vasos Mezcladores" },
+        {link: "/category/vasos", name: "Vasos y Copas" }
+    ]
 
     return (
         <div>
@@ -14,32 +22,7 @@ const NavBar = (id) => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to={'/category/cocteleras'}>Cocteleras</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={'/category/coladores%20y%20cucharillas'}>Coladores y Cucharillas</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={'/category/vasos%20mezcladores'}>Vasos Mezcladores</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={'/category/vasos'}>Vasos y Copas</Link>
-                            </li>
-                            {/* <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle" to={'/category/vasos'} role="button" data-bs-toggle="dropdown" aria-expanded="false">Vasos y Copas</Link>
-                                <ul className="dropdown-menu">
-                                    <li>
-                                        <Link className="dropdown-item" to={'/category/vasos/vidrio'}>Vidrio</Link>
-                                    </li>
-                                    <li>
-                                        <Link className="dropdown-item" to={'/category/vasos/acrilico'}>Acrílico</Link>
-                                    </li>
-                                    <li>
-                                        <Link className="dropdown-item" to={'/category/vasos/tiki'}>Tiki</Link>
-                                    </li>
-                                </ul>
-                            </li> */}
+                            {categoriesArray.map(cat => (<li className="nav-item"><Link className="nav-link active" aria-current="page" to={cat.link}>{cat.name}</Link></li>))}
                         </ul>
                     </div>
                     <CartWidget/>
