@@ -25,7 +25,7 @@ const ItemDetail = ({item}) => {
                 </ul>
                 <h3 className="text-center">US${item.price}</h3>
             </div>
-            {quantityToAdd === 0 ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd} /> : <Link to={"/cart"}><button className="btn btn-outline-secondary" type="button">Ir al carrito</button></Link>}
+            {quantityToAdd === 0 ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd} /> : <Link to={"/cart"}><button className="btn btn-outline-secondary" type="button">Terminar mi compra</button></Link>}
         </div>
     )
 }
