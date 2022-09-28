@@ -2,30 +2,30 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import { products } from "./Products";
+import { db } from "../firebaseConfig";
+import { collection, getDoc, doc } from "firebase/firestore"
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({})
 
+    // Se define la constante id que se alimenta de la URL. La key id viene determinada desde el path en la App.js
     const { id } = useParams();
 
     useEffect(() => {
-        const getProduct = (id) =>
-            new Promise ((resolve, reject) => {
-                const product = products.find((prod) => prod.id === id)
-                setTimeout(() => {
-                    resolve(product)
-                }, 2000)
-            });
+        const prodCollection = collection(db, 'items')
+        const activeProduct = doc(prodCollection, id)
 
-            getProduct(id)
-            .then((response) =>{
-                setItem(response)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    },[])
+        getDoc(activeProduct)
+        .then((response)=>{
+            setItem({
+                id: response.id,
+                ...response.data(),
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    },[id])
 
     return (
         <div className="container" style={{ maxWidth: '50vw' }}>
