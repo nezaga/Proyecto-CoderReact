@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
+import { CartContext } from "./context/CartContext";
 
 const NavBar = (id) => {
     
@@ -11,6 +12,11 @@ const NavBar = (id) => {
         {link: "/category/vasos%20mezcladores", name: "Vasos Mezcladores" },
         {link: "/category/vasos", name: "Vasos y Copas" }
     ]
+
+    // Traigo del contexto la función para contar el total de items del carrito
+    const { cartTotal } =  useContext(CartContext)
+    // Asigno una variable al resultado de la función para agregarla en el widget
+    const totalItems = cartTotal();
 
     return (
         <div>
@@ -25,7 +31,7 @@ const NavBar = (id) => {
                             {categoriesArray.map(cat => (<li className="nav-item"><Link className="nav-link active" aria-current="page" to={cat.link}>{cat.name}</Link></li>))}
                         </ul>
                     </div>
-                    <CartWidget/>
+                    {totalItems === 0 ? "" : <CartWidget/>}
                 </div>
             </nav>
         </div>
