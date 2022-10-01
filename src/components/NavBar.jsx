@@ -28,7 +28,7 @@ const NavBar = (id) => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
-                            {categoriesArray.map(cat => (<li className="nav-item"><Link className="nav-link active" aria-current="page" to={cat.link}>{cat.name}</Link></li>))}
+                            {categoriesArray.map(cat => (<li key={cat.name} className="nav-item"><Link className="nav-link active" aria-current="page" to={cat.link}>{cat.name}</Link></li>))}
                         </ul>
                     </div>
                     {totalItems === 0 ? "" : <CartWidget/>}
