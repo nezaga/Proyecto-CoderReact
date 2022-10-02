@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import { db } from "../firebaseConfig";
 import { collection, getDoc, doc } from "firebase/firestore";
+import Loading from "./Loading";
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState({})
+    const [item, setItem] = useState({});
+    const [loading, setLoading] = useState(true);
 
     // Se define la constante id que se alimenta de la URL. La key id viene determinada desde el path en la App.js
     const { id } = useParams();
@@ -21,6 +23,7 @@ const ItemDetailContainer = () => {
                 id: response.id,
                 ...response.data(),
             });
+            setLoading(false);
         })
         .catch((error) => {
             console.log(error);
@@ -29,7 +32,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className="container" style={{ maxWidth: '50vw' }}>
-            <ItemDetail item={item}/>
+            {loading ? <Loading /> : <ItemDetail item={item}/>}
         </div>
     )
 }

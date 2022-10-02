@@ -12,7 +12,7 @@ const Cart = () => {
             {cart.length === 0 ?
                 <div className="text-center">
                     <h2>¡No hay productos en tu carrito!</h2>
-                    <Link to={"/"}><button className="btn btn-outline-secondary" type="button">Revisá nuestros productos</button></Link>
+                    <Link to={"/"}><button className="btn btn-outline-secondary" type="button">Revisá nuestro catálogo</button></Link>
                 </div>
             :
                 <div>
@@ -44,6 +44,9 @@ const Cart = () => {
                         </tbody>
                     </table>
                     <button onClick={clear}>Vaciar Carrito</button>
+                    <Link to={"/checkout"}>
+                        <button>Finalizar Compra</button>
+                    </Link>
                 </div>
             }
         </div>
