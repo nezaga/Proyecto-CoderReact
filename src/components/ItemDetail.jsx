@@ -18,11 +18,7 @@ const ItemDetail = ({item}) => {
             <div>
                 <img src={item.pictureURL} alt={item.title} />
                 <h2>{item.title}</h2>
-                <ul>
-                    <li>A Set of 2 Koriko® Weighted Tins (large and small) has a 2 drink capacity.</li>
-                    <li>Koriko® Tins are designed for a good fit with easier separation after shaking.</li>
-                    <li>Small Weighted Shaking Tin 18oz (532ml) & Large Weighted Shaking Tin 28oz (830ml).</li>
-                </ul>
+                <p>{item.description}</p>
                 <h3 className="text-center">US${item.price}</h3>
             </div>
             {quantityToAdd === 0 ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd} /> : <Link to={"/cart"}><button className="btn btn-outline-secondary" type="button">Terminar mi compra</button></Link>}
