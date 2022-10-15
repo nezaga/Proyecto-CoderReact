@@ -1,3 +1,11 @@
+# The Bar Store
+
+Trabajo en Ract JS para el curso de Coder.
+
+Es un sitio de productos de coctelería con carrito de compras. Está implementado en ReactJS, utiliza Bootstrap v5.2 y base documental Firebase. 
+
+--------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
